@@ -10,21 +10,43 @@ namespace RPS.Net.Tests
     public class MatchTests
     {
         [Fact]
-        public void DrawResult()
+        public void NoResultIfNoTurns()
         {
-            Assert.True(false);
+            var match = new Match<Standard>();
+            Assert.Null(match.Result());
         }
 
         [Fact]
-        public void Player1Wins()
+        public void DrawResult()
         {
-            Assert.True(false);
+            var match = new Match<Standard>(
+                new Turn<Standard>(Standard.Rock(), Standard.Paper()),
+                new Turn<Standard>(Standard.Rock(), Standard.Scissors()),
+                new Turn<Standard>(Standard.Rock(), Standard.Rock())
+                );
+            Assert.Equal(Winner.Draw, match.Result());
         }
 
         [Fact]
         public void Player2Wins()
         {
-            Assert.True(false);
+            var match = new Match<Standard>(
+                new Turn<Standard>(Standard.Rock(), Standard.Paper()),
+                new Turn<Standard>(Standard.Paper(), Standard.Scissors()),
+                new Turn<Standard>(Standard.Rock(), Standard.Rock())
+            );
+            Assert.Equal(Winner.Player2, match.Result());
+        }
+
+        [Fact]
+        public void Player1Wins()
+        {
+            var match = new Match<Standard>(
+                new Turn<Standard>(Standard.Rock(), Standard.Scissors()),
+                new Turn<Standard>(Standard.Rock(), Standard.Scissors()),
+                new Turn<Standard>(Standard.Rock(), Standard.Rock())
+            );
+            Assert.Equal(Winner.Player1, match.Result());
         }
     }
 }

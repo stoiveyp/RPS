@@ -10,6 +10,13 @@ namespace RPS.Net.Tests
     public class TurnTests
     {
         [Fact]
+        public void NoResultIfUnplayedTurn()
+        {
+            var turn = new Turn<Standard>(Standard.Rock(), null);
+            Assert.Null(turn.Result());
+        }
+
+        [Fact]
         public void DrawResult()
         {
             var turn = new Turn<Standard>(Standard.Rock(),Standard.Rock());
