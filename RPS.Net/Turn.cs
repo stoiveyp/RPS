@@ -6,9 +6,13 @@ namespace RPS.Net
     {
         public Turn(){}
 
-        public Turn(TShape? player1, TShape? player2)
+        public Turn(TShape player1)
         {
             Player1 = player1;
+        }
+
+        public Turn(TShape player1, TShape player2):this(player1)
+        {
             Player2 = player2;
         }
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RPS.Net.Shapes;
+﻿using RPS.Net.Shapes;
 
 namespace RPS.Net.Tests
 {
@@ -12,7 +7,7 @@ namespace RPS.Net.Tests
         [Fact]
         public void NoResultIfUnplayedTurn()
         {
-            var turn = new Turn<Standard>(Standard.Rock(), null);
+            var turn = new Turn<Standard>(Standard.Rock());
             Assert.Null(turn.Result());
         }
 
