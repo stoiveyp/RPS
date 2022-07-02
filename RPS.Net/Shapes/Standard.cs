@@ -26,7 +26,7 @@ namespace RPS.Net.Shapes
 
         public int CompareTo(IShape shape)
         {
-            if (!(shape is Standard stand))
+            if (shape is not Standard stand)
             {
                 throw new InvalidOperationException("Unable to compare non standard type");
             }
@@ -34,9 +34,9 @@ namespace RPS.Net.Shapes
             return CompareTo(stand);
         }
 
-        public static Standard Rock() => new Standard(StandardShape.Rock);
-        public static Standard Paper() => new Standard(StandardShape.Paper);
-        public static Standard Scissors() => new Standard(StandardShape.Scissors);
+        public static Standard Rock() => new (StandardShape.Rock);
+        public static Standard Paper() => new (StandardShape.Paper);
+        public static Standard Scissors() => new (StandardShape.Scissors);
 
         public Standard(StandardShape shape)
         {
@@ -97,12 +97,5 @@ namespace RPS.Net.Shapes
         {
             return operand1.CompareTo(operand2) <= 0;
         }
-    }
-
-    public enum StandardShape
-    {
-        Rock,
-        Paper,
-        Scissors
     }
 }

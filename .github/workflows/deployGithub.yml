@@ -1,0 +1,67 @@
+name: Build Suretta Engine
+
+on:
+  push:
+    branches:
+    - main
+    paths-ignore:
+    - '**/*.md'
+    - '**/*.gitignore'
+
+jobs:
+  build:
+    name: Build and package 
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.8.0
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    # Run the tests, ideally should stop here if a fail and also publish results as artifacts
+    - name: Test
+      run: dotnet test
+
+    - name: Pack Repos
+      run: dotnet pack RPS.Net --configuration Release -o finalpackage --no-build
+
+    - name: Publish artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: nupkg
+        path: finalpackage
+        retention-days: 3
+
+  deploy:
+    needs: build
+    environment:
+      name: production
+    name: Sign and publish
+    runs-on: ubuntu-latest # using windows agent due to nuget can't sign on linux yet
+    steps:
+      - name: Download Package artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: nupkg
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.8.0
+        with:
+          dotnet-version: 6.0.x
+          include-prerelease: true
+
+      - name: Add GPR Source
+        run: dotnet nuget add source --username stoiveyp --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name GPR https://nuget.pkg.github.com/stoiveyp/index.json
+
+      - name: Push to GitHub Packages
+        #run: nuget push **/*.nupkg -Source "GPR" -SkipDuplicate
+        run: dotnet nuget push **/*.nupkg -s "GPR" --skip-duplicate
+         

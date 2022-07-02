@@ -4,6 +4,21 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>latest</LangVersion>
 	  <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	  <Description>Objects and methods to implement a game of Rock Paper Scissors</Description>
+	  <PackageProjectUrl>https://github.com/stoiveyp/RPS</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/stoiveyp/RPS</RepositoryUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageTags>rock; paper; scissors</PackageTags>
+	  <PackageReleaseNotes>Initial implementation and tests</PackageReleaseNotes>
+	  <PackageLicenseFile>C:\Users\steve\source\repos\stoiveyp\RPS\LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
