@@ -5,12 +5,13 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EF4790F-D849-4B3B-B161-7EDC12348BED}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPS.Net", "RPS.Net\RPS.Net.csproj", "{ADAFB1D1-3D9B-4632-B9B6-A3DCEEBB2C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPS.Net", "RPS.Net\RPS.Net.csproj", "{ADAFB1D1-3D9B-4632-B9B6-A3DCEEBB2C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPS.Net.Tests", "RPS.Net.Tests\RPS.Net.Tests.csproj", "{585FFD64-5AB0-4648-BA84-692BDBB2D5FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPS.Net.Tests", "RPS.Net.Tests\RPS.Net.Tests.csproj", "{585FFD64-5AB0-4648-BA84-692BDBB2D5FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,7 @@
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageTags>rock; paper; scissors</PackageTags>
 	  <PackageReleaseNotes>Initial implementation and tests</PackageReleaseNotes>
-	  <PackageLicenseFile>C:\Users\steve\source\repos\stoiveyp\RPS\LICENSE</PackageLicenseFile>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
     </None>
 	  <None Include="..\LICENSE">
 		  <Pack>True</Pack>
-		  <PackagePath></PackagePath>
+		  <PackagePath>\</PackagePath>
 	  </None>
   </ItemGroup>
 
